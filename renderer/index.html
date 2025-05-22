@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Organizer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <style>
+        .category-card {
+            transition: all 0.3s ease;
+        }
+        .category-card:hover {
+            transform: translateY(-2px);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <div id="app">
+        <!-- Header -->
+        <header class="gradient-bg text-white p-6 shadow-lg">
+            <div class="container mx-auto">
+                <h1 class="text-3xl font-bold">File Organizer</h1>
+                <p class="text-blue-100 mt-2">Automatically organize your files by type</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="container mx-auto p-6">
+            <!-- Folder Selection -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-xl font-semibold mb-4">Select Folder to Organize</h2>
+                <div class="flex items-center space-x-4">
+                    <button id="selectFolderBtn" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg transition-colors">
+                        📁 Select Folder
+                    </button>
+                    <span id="selectedPath" class="text-gray-600 italic">No folder selected</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div id="controlsSection" class="bg-white rounded-lg shadow-md p-6 mb-6 hidden">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <button id="organizeBtn" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg transition-colors">
+                        🗂️ Organize Now
+                    </button>
+                    <button id="watchBtn" class="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg transition-colors">
+                        👀 Start Watching
+                    </button>
+                    <button id="stopWatchBtn" class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg transition-colors hidden">
+                        ⏹️ Stop Watching
+                    </button>
+                </div>
+            </div>
+
+            <!-- File Preview -->
+            <div id="filePreview" class="bg-white rounded-lg shadow-md p-6 mb-6 hidden">
+                <h3 class="text-lg font-semibold mb-4">Files in Selected Folder</h3>
+                <div id="fileList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </div>
+
+            <!-- Category Overview -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div class="category-card bg-purple-100 p-4 rounded-lg border border-purple-200">
+                    <div class="text-purple-600 text-2xl mb-2">🖼️</div>
+                    <h3 class="font-semibold text-purple-800">Images</h3>
+                    <p class="text-sm text-purple-600">JPG, PNG, GIF, SVG...</p>
+                </div>
+                <div class="category-card bg-red-100 p-4 rounded-lg border border-red-200">
+                    <div class="text-red-600 text-2xl mb-2">🎥</div>
+                    <h3 class="font-semibold text-red-800">Videos</h3>
+                    <p class="text-sm text-red-600">MP4, AVI, MKV, MOV...</p>
+                </div>
+                <div class="category-card bg-blue-100 p-4 rounded-lg border border-blue-200">
+                    <div class="text-blue-600 text-2xl mb-2">📄</div>
+                    <h3 class="font-semibold text-blue-800">Documents</h3>
+                    <p class="text-sm text-blue-600">PDF, DOC, TXT, XLS...</p>
+                </div>
+                <div class="category-card bg-green-100 p-4 rounded-lg border border-green-200">
+                    <div class="text-green-600 text-2xl mb-2">🎵</div>
+                    <h3 class="font-semibold text-green-800">Audio</h3>
+                    <p class="text-sm text-green-600">MP3, WAV, FLAC, AAC...</p>
+                </div>
+            </div>
+
+            <!-- Activity Log -->
+            <div id="activityLog" class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold mb-4">Activity Log</h3>
+                <div id="logContent" class="space-y-2 max-h-64 overflow-y-auto">
+                    <p class="text-gray-500 italic">No activity yet</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
