@@ -17,32 +17,38 @@ An Electron desktop application that helps you organize and monitor files automa
 ## Installation
 
 ### Prerequisites
+
 - Node.js (v14.x or later)
 - pnpm package manager
 
 ### Setup
+
 1. Clone the repository:
-   ```
+
+   ```bash
    git clone https://github.com/yourusername/chokidar.git
    cd chokidar
    ```
 
 2. Install dependencies:
-   ```
+
+   ```bash
    pnpm install
    ```
 
-## Usage
-
 ### Development Mode
+
 Run the application in development mode:
-```
+
+```bash
 pnpm start
 ```
 
 ### Build for Production
+
 Create a production build:
-```
+
+```bash
 pnpm build
 ```
 
@@ -76,7 +82,7 @@ The application organizes files into the following categories:
 
 ## Project Structure
 
-```
+```md
 ├── main.js           # Electron main process
 ├── preload.js        # Preload script for secure IPC
 ├── package.json      # Project configuration
